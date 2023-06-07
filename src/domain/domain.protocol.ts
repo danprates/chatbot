@@ -1,5 +1,4 @@
-import { Assistant } from "./assistant.entity";
-import { Message } from "./message.entity";
+import { Assistant, Message } from "./entities";
 
 export declare namespace Domain {
   export interface Channel {

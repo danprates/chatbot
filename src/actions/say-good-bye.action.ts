@@ -1,6 +1,5 @@
-import { Assistant } from "@/domain/assistant.entity";
+import { Assistant, Message } from "../domain/entities";
 import { Domain } from "@/domain/domain.protocol";
-import { Message } from "@/domain/message.entity";
 
 export class SayGoodBye implements Domain.Action {
   exec(message: Message, assistant: Assistant): string[] {

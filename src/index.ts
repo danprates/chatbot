@@ -1,6 +1,6 @@
-import { makeActions } from "./actions";
 import trainedData from "./classifier.json";
-import { Assistant } from "./domain/assistant.entity";
+import { makeActions } from "./actions";
+import { Assistant } from "./domain/entities";
 import { Terminal } from "./infra/channels/terminal.channel";
 import { Natural } from "./infra/classifiers/natural.classifier";
 

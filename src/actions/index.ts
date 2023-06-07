@@ -1,4 +1,4 @@
-import { Domain } from "@/domain/domain.protocol";
+import { Domain } from "../domain/domain.protocol";
 import { SayHello } from "./say-hello.action";
 import { SayGoodBye } from "./say-good-bye.action";
 

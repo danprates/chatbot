@@ -1,6 +1,5 @@
-import { Domain } from "./domain.protocol";
-import { Message } from "./message.entity";
-import { Session } from "./session.entity";
+import { Domain } from "../domain.protocol";
+import { Message, Session } from ".";
 
 interface Props {
   channel: Domain.Channel;

@@ -1,6 +1,6 @@
 import { BayesClassifier } from "natural";
 import { Domain } from "../../domain/domain.protocol";
-import { Message } from "../../domain/message.entity";
+import { Message } from "../../domain/entities";
 
 export class Natural implements Domain.Classifier {
   private readonly classifier: BayesClassifier;

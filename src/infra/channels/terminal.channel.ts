@@ -1,5 +1,5 @@
-import { Domain } from "@/domain/domain.protocol";
 import readline from "node:readline";
+import { Domain } from "@/domain/domain.protocol";
 
 export class Terminal implements Domain.Channel {
   private readonly rl: readline.Interface;

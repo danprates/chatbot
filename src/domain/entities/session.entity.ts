@@ -1,4 +1,4 @@
-import { Message } from "./message.entity";
+import { Message } from ".";
 
 export class Session {
   private readonly startedAt: Date;
