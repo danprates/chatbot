@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "build": "rimraf dist && tsc",
-    "start": "ts-node src/index.js",
-    "train": "ts-node src/train.js"
+    "start": "ts-node src/index.ts",
+    "train": "ts-node src/train.ts"
   },
   "keywords": [],
   "author": "",
