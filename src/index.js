@@ -15,7 +15,7 @@ function main() {
   rl.prompt();
 
   rl.on("line", (userInput) => {
-    if (userInput.toLowerCase() === "sair") {
+    if (userInput.toLowerCase() === "close") {
       console.log("Thank you for using the Chatbot. Goodbye!");
       rl.close();
     } else {

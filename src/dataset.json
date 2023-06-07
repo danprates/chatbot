@@ -1,14 +1,50 @@
 [
   {
-    "synonym": "amazing, awesome movie!! Yeah!! Oh boy.",
-    "intention": "positive"
+    "synonym": "Hello, how are you?",
+    "intention": "greeting"
   },
   {
-    "synonym": "Sweet, this is incredibly, amazing, perfect, great!!",
-    "intention": "positive"
+    "synonym": "Hi, nice to meet you!",
+    "intention": "greeting"
   },
   {
-    "synonym": "terrible, shitty thing. Damn. Sucks!!",
-    "intention": "negative"
+    "synonym": "Hey, what's up?",
+    "intention": "greeting"
+  },
+  {
+    "synonym": "Good morning!",
+    "intention": "greeting"
+  },
+  {
+    "synonym": "Good afternoon!",
+    "intention": "greeting"
+  },
+  {
+    "synonym": "Good evening!",
+    "intention": "greeting"
+  },
+  {
+    "synonym": "Yo!",
+    "intention": "greeting"
+  },
+  {
+    "synonym": "Hey there!",
+    "intention": "greeting"
+  },
+  {
+    "synonym": "Hiya!",
+    "intention": "greeting"
+  },
+  {
+    "synonym": "What's going on?",
+    "intention": "greeting"
+  },
+  {
+    "synonym": "Howdy!",
+    "intention": "greeting"
+  },
+  {
+    "synonym": "Good to see you!",
+    "intention": "greeting"
   }
 ]
