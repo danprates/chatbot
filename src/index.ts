@@ -1,34 +1,17 @@
-import { BayesClassifier } from "natural";
-import raw from "./classifier.json";
-import readline from "readline";
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+import { makeActions } from "./actions";
+import trainedData from "./classifier.json";
+import { Assistant } from "./domain/assistant.entity";
+import { Terminal } from "./infra/channels/terminal.channel";
+import { Natural } from "./infra/classifiers/natural.classifier";
 
 function main() {
-  const classifier = BayesClassifier.restore(raw as any);
+  const classifier = new Natural(trainedData);
+  const channel = new Terminal();
+  const actions = makeActions();
 
-  console.log('Welcome to the Chatbot! Type "exit" to end the conversation.');
+  const assistant = new Assistant({ channel, classifier, actions });
 
-  rl.prompt();
-
-  rl.on("line", (userInput) => {
-    if (userInput.toLowerCase() === "close") {
-      console.log("Thank you for using the Chatbot. Goodbye!");
-      rl.close();
-    } else {
-      const result = classifier.classify(userInput);
-      console.log(result);
-
-      rl.prompt();
-    }
-  });
-
-  rl.on("close", () => {
-    process.exit(0);
-  });
+  assistant.start();
 }
 
 main();
