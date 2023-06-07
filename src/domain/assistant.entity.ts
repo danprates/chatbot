@@ -1,5 +1,6 @@
 import { Domain } from "./domain.protocol";
 import { Message } from "./message.entity";
+import { Session } from "./session.entity";
 
 interface Props {
   channel: Domain.Channel;
@@ -8,12 +9,13 @@ interface Props {
 }
 
 export class Assistant {
-  private readonly messages: Message[] = [];
+  private session: Session;
   constructor(private readonly props: Props) {}
   start() {
     this.props.channel.write([
       'Welcome to the Chatbot! Type "exit" to end the conversation.',
     ]);
+    this.session = new Session();
     this.props.channel.open(this.onMessage.bind(this));
   }
   stop() {
@@ -22,7 +24,7 @@ export class Assistant {
 
   onMessage(text: string): string[] | null {
     const message = this.props.classifier.classify(text);
-    this.messages.push(message);
+    this.session.addMessage(message);
     const result = this.execActions(message);
     return result;
   }
