@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "CommonJS",
+    "target": "ES2017",
+    "lib": [
+      "ES6"
+    ],
+    "removeComments": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strictNullChecks": true,
+    "baseUrl": "src",
+    "sourceMap": true,
+    "paths": {
+      "@/tests/*": [
+        "../tests/*"
+      ],
+      "@/*": [
+        "*"
+      ],
+    }
+  },
+  "include": [
+    "src",
+    "tests"
+  ],
+}
