@@ -1,5 +1,5 @@
-const { BayesClassifier } = require("natural");
-const dataset = require("./dataset.json");
+import { BayesClassifier } from "natural";
+import dataset from "./dataset.json";
 
 function main() {
   const classifier = new BayesClassifier();

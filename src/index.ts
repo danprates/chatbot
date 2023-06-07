@@ -1,6 +1,6 @@
-const { BayesClassifier } = require("natural");
-const raw = require("./classifier.json");
-const readline = require("readline");
+import { BayesClassifier } from "natural";
+import raw from "./classifier.json";
+import readline from "readline";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 });
 
 function main() {
-  const classifier = BayesClassifier.restore(raw);
+  const classifier = BayesClassifier.restore(raw as any);
 
   console.log('Welcome to the Chatbot! Type "exit" to end the conversation.');
 

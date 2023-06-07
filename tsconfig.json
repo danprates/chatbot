@@ -12,6 +12,7 @@
     "strictNullChecks": true,
     "baseUrl": "src",
     "sourceMap": true,
+    "resolveJsonModule": true,
     "paths": {
       "@/tests/*": [
         "../tests/*"
