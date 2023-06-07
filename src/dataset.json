@@ -1,0 +1,14 @@
+[
+  {
+    "synonym": "amazing, awesome movie!! Yeah!! Oh boy.",
+    "intention": "positive"
+  },
+  {
+    "synonym": "Sweet, this is incredibly, amazing, perfect, great!!",
+    "intention": "positive"
+  },
+  {
+    "synonym": "terrible, shitty thing. Damn. Sucks!!",
+    "intention": "negative"
+  }
+]
