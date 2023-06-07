@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "build": "rimraf dist && tsc",
     "start": "ts-node src/index.js",
     "train": "ts-node src/train.js"
   },
