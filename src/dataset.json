@@ -46,5 +46,45 @@
   {
     "synonym": "Good to see you!",
     "intention": "greeting"
+  },
+  {
+    "synonym": "Bye, see you later!",
+    "intention": "goodbye"
+  },
+  {
+    "synonym": "Goodbye, take care!",
+    "intention": "goodbye"
+  },
+  {
+    "synonym": "See you!",
+    "intention": "goodbye"
+  },
+  {
+    "synonym": "Farewell!",
+    "intention": "goodbye"
+  },
+  {
+    "synonym": "Adios!",
+    "intention": "goodbye"
+  },
+  {
+    "synonym": "Later!",
+    "intention": "goodbye"
+  },
+  {
+    "synonym": "Close",
+    "intention": "goodbye"
+  },
+  {
+    "synonym": "Exit",
+    "intention": "goodbye"
+  },
+  {
+    "synonym": "Quit",
+    "intention": "goodbye"
+  },
+  {
+    "synonym": "Stop",
+    "intention": "goodbye"
   }
 ]
