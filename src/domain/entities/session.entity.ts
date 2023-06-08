@@ -5,6 +5,7 @@ export class Session {
   private finishedAt?: Date;
   private readonly messages: Message[];
   private waitingForResponse: boolean;
+  private currentAction?: string;
   constructor(private readonly user: User) {
     this.startedAt = new Date();
     this.messages = [];
@@ -19,11 +20,22 @@ export class Session {
     this.finishedAt = new Date();
   }
 
-  waitForResponse() {
+  waitForResponse(currentAction: string) {
     this.waitingForResponse = true;
+    this.currentAction = currentAction;
   }
 
   isWaitingForResponse(): boolean {
     return this.waitingForResponse;
+  }
+
+  getLastAction(): string {
+    if (!this.waitingForResponse)
+      throw new Error("This session is not waiting for response");
+
+    if (!this.currentAction)
+      throw new Error("There's no last action registered");
+
+    return this.currentAction;
   }
 }
