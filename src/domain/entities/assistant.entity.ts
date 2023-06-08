@@ -32,7 +32,7 @@ export class Assistant {
   }
 
   async execActions(message: Message, session: Session): Promise<string[]> {
-    const actionName = session.isWaitingForResponse()
+    const actionName = session.isWaitingForReply()
       ? session.getLastAction()
       : message.intention;
 

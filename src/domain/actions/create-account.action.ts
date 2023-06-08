@@ -15,7 +15,7 @@ export class CreateAccount implements Domain.Action {
     message: Message,
     session: Session
   ): Promise<{ session: Session; messages: string[] }> {
-    const stepName = session.isWaitingForResponse()
+    const stepName = session.isWaitingForReply()
       ? session.getLastStep()
       : "start";
     const messages = this[stepName](message, session);
@@ -26,7 +26,7 @@ export class CreateAccount implements Domain.Action {
     message: Message,
     session: Session
   ): Promise<{ session: Session; messages: string[] }> {
-    session.waitForResponse("createAccount", "getFirstName");
+    session.waitForReply("createAccount", "getFirstName");
     return {
       session,
       messages: [
@@ -42,7 +42,7 @@ export class CreateAccount implements Domain.Action {
     session: Session
   ): Promise<{ session: Session; messages: string[] }> {
     session.setVariable("firstName", message.text);
-    session.waitForResponse("createAccount", "getLastName");
+    session.waitForReply("createAccount", "getLastName");
     return { session, messages: ["What's your last name?"] };
   }
 
@@ -51,7 +51,7 @@ export class CreateAccount implements Domain.Action {
     session: Session
   ): Promise<{ session: Session; messages: string[] }> {
     session.setVariable("lastName", message.text);
-    session.waitForResponse("createAccount", "getLastName");
+    session.waitForReply("createAccount", "getLastName");
     return { session, messages: ["What's your email?"] };
   }
 }

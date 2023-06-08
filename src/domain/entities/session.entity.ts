@@ -4,14 +4,14 @@ export class Session {
   private readonly startedAt: Date;
   private finishedAt?: Date;
   private readonly messages: Message[];
-  private waitingForResponse: boolean;
+  private waitingForReply: boolean;
   private currentAction?: string;
   private currentStep?: string;
   private variables: Record<string, any> = {};
   constructor(readonly user: User) {
     this.startedAt = new Date();
     this.messages = [];
-    this.waitingForResponse = false;
+    this.waitingForReply = false;
   }
 
   addMessage(message: Message) {
@@ -22,18 +22,18 @@ export class Session {
     this.finishedAt = new Date();
   }
 
-  waitForResponse(currentAction: string, currentStep: string) {
-    this.waitingForResponse = true;
+  waitForReply(currentAction: string, currentStep: string) {
+    this.waitingForReply = true;
     this.currentAction = currentAction;
     this.currentStep = currentStep;
   }
 
-  isWaitingForResponse(): boolean {
-    return this.waitingForResponse;
+  isWaitingForReply(): boolean {
+    return this.waitingForReply;
   }
 
   getLastAction(): string {
-    if (!this.waitingForResponse)
+    if (!this.waitingForReply)
       throw new Error("This session is not waiting for response");
 
     if (!this.currentAction)
@@ -43,7 +43,7 @@ export class Session {
   }
 
   getLastStep(): string {
-    if (!this.waitingForResponse)
+    if (!this.waitingForReply)
       throw new Error("This session is not waiting for response");
 
     if (!this.currentStep) throw new Error("There's no last step registered");
