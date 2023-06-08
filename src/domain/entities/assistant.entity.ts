@@ -32,8 +32,13 @@ export class Assistant {
   }
 
   execActions(message: Message, session: Session): string[] {
-    const action = this.props.actions.get(message.intention);
+    const actionName = session.isWaitingForResponse()
+      ? session.getLastAction()
+      : message.intention;
+
+    const action = this.props.actions.get(actionName);
     if (!action) return [];
+
     return action.exec(message, session);
   }
 }
