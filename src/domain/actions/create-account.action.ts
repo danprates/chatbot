@@ -11,7 +11,10 @@ export class CreateAccount implements Domain.Action {
     this.steps.set("getLastName", this.getLastName);
   }
 
-  exec(message: Message, session: Session): string[] {
+  async exec(
+    message: Message,
+    session: Session
+  ): Promise<{ session: Session; messages: string[] }> {
     const stepName = session.isWaitingForResponse()
       ? session.getLastStep()
       : "start";
@@ -19,13 +22,19 @@ export class CreateAccount implements Domain.Action {
     return messages;
   }
 
-  start(message: Message, session: Session) {
+  async start(
+    message: Message,
+    session: Session
+  ): Promise<{ session: Session; messages: string[] }> {
     session.waitForResponse("createAccount", "getFirstName");
-    return [
-      "We are glad that you want to create an account.",
-      "First, we need some information",
-      "What's your name?",
-    ];
+    return {
+      session,
+      messages: [
+        "We are glad that you want to create an account.",
+        "First, we need some information",
+        "What's your name?",
+      ],
+    };
   }
 
   getFirstName(message: Message, session: Session) {

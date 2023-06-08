@@ -9,7 +9,6 @@ interface Props {
 }
 
 export class Assistant {
-  private session: Session;
   constructor(private readonly props: Props) {}
   start() {
     this.props.channel.write([
@@ -31,7 +30,7 @@ export class Assistant {
     return result;
   }
 
-  execActions(message: Message, session: Session): string[] {
+  async execActions(message: Message, session: Session): Promise<string[]> {
     const actionName = session.isWaitingForResponse()
       ? session.getLastAction()
       : message.intention;
@@ -39,6 +38,7 @@ export class Assistant {
     const action = this.props.actions.get(actionName);
     if (!action) return [];
 
-    return action.exec(message, session);
+    const { messages } = await action.exec(message, session);
+    return messages;
   }
 }

@@ -1,4 +1,4 @@
-import { Assistant, Message, Session, User } from "./entities";
+import { Message, Session, User } from "./entities";
 
 export declare namespace Domain {
   export interface Channel {
@@ -12,7 +12,10 @@ export declare namespace Domain {
   }
 
   export interface Action {
-    exec(message: Message, session: Session): string[];
+    exec(
+      message: Message,
+      session: Session
+    ): Promise<{ session: Session; messages: string[] }>;
   }
 
   export interface SessionRepository {
