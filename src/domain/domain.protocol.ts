@@ -20,5 +20,6 @@ export declare namespace Domain {
 
   export interface SessionRepository {
     getActiveSessionByUser(user: User): Promise<Session>;
+    save(session: Session): Promise<void>;
   }
 }
