@@ -28,6 +28,10 @@ export class Session {
     this.currentStep = currentStep;
   }
 
+  removeWaitForReply(): void {
+    this.waitingForReply = false;
+  }
+
   isWaitingForReply(): boolean {
     return this.waitingForReply;
   }
