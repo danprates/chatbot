@@ -7,7 +7,7 @@ export class Session {
   private waitingForResponse: boolean;
   private currentAction?: string;
   private currentStep?: string;
-  constructor(private readonly user: User) {
+  constructor(readonly user: User) {
     this.startedAt = new Date();
     this.messages = [];
     this.waitingForResponse = false;
