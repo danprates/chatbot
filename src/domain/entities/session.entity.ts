@@ -58,4 +58,8 @@ export class Session {
   setVariable(name: string, value: any): void {
     this.variables[name] = value;
   }
+
+  getVariables() {
+    return this.variables;
+  }
 }
