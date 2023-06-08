@@ -27,6 +27,7 @@ export class Assistant {
     );
     session.addMessage(message);
     const result = this.execActions(message, session);
+    await this.props.sessionRepository.save(session);
     return result;
   }
 
