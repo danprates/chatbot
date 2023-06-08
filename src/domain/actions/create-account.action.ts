@@ -37,11 +37,21 @@ export class CreateAccount implements Domain.Action {
     };
   }
 
-  getFirstName(message: Message, session: Session) {
-    return ["We need your first name"];
+  async getFirstName(
+    message: Message,
+    session: Session
+  ): Promise<{ session: Session; messages: string[] }> {
+    session.setVariable("firstName", message.text);
+    session.waitForResponse("createAccount", "getLastName");
+    return { session, messages: ["What's your last name?"] };
   }
 
-  getLastName(message: Message, session: Session) {
-    return ["We need your last name"];
+  async getLastName(
+    message: Message,
+    session: Session
+  ): Promise<{ session: Session; messages: string[] }> {
+    session.setVariable("lastName", message.text);
+    session.waitForResponse("createAccount", "getLastName");
+    return { session, messages: ["What's your email?"] };
   }
 }
