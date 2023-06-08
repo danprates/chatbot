@@ -1,8 +1,8 @@
-import { Assistant, Message } from "./entities";
+import { Assistant, Message, Session, User } from "./entities";
 
 export declare namespace Domain {
   export interface Channel {
-    open: (onMessage: (text: string) => string[] | null) => void;
+    open: (onMessage: (text: string, user: User) => Promise<string[]>) => void;
     close: () => void;
     write: (messages: string[] | null) => void;
   }
@@ -12,6 +12,10 @@ export declare namespace Domain {
   }
 
   export interface Action {
-    exec(message: Message, assistant: Assistant): string[];
+    exec(message: Message, session: Session): string[];
+  }
+
+  export interface SessionRepository {
+    getActiveSessionByUser(user: User): Promise<Session>;
   }
 }

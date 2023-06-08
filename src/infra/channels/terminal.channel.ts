@@ -1,5 +1,6 @@
 import readline from "node:readline";
-import { Domain } from "@/domain/domain.protocol";
+import { Domain } from "../../domain/domain.protocol";
+import { User } from "../../domain/entities";
 
 export class Terminal implements Domain.Channel {
   private readonly rl: readline.Interface;
@@ -9,10 +10,11 @@ export class Terminal implements Domain.Channel {
       output: process.stdout,
     });
   }
-  open(onMessage: (text: string) => string[]) {
+  open(onMessage: (text: string, user: User) => Promise<string[]>) {
     this.rl.prompt();
-    this.rl.on("line", (userInput: string) => {
-      const messages = onMessage(userInput);
+    this.rl.on("line", async (userInput: string) => {
+      const user = new User(1, "Customer");
+      const messages = await onMessage(userInput, user);
       this.write(messages);
       this.rl.prompt();
     });
