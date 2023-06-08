@@ -6,6 +6,7 @@ export class Session {
   private readonly messages: Message[];
   private waitingForResponse: boolean;
   private currentAction?: string;
+  private currentStep?: string;
   constructor(private readonly user: User) {
     this.startedAt = new Date();
     this.messages = [];
@@ -20,9 +21,10 @@ export class Session {
     this.finishedAt = new Date();
   }
 
-  waitForResponse(currentAction: string) {
+  waitForResponse(currentAction: string, currentStep: string) {
     this.waitingForResponse = true;
     this.currentAction = currentAction;
+    this.currentStep = currentStep;
   }
 
   isWaitingForResponse(): boolean {
@@ -37,5 +39,14 @@ export class Session {
       throw new Error("There's no last action registered");
 
     return this.currentAction;
+  }
+
+  getLastStep(): string {
+    if (!this.waitingForResponse)
+      throw new Error("This session is not waiting for response");
+
+    if (!this.currentStep) throw new Error("There's no last step registered");
+
+    return this.currentStep;
   }
 }
