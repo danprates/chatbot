@@ -7,6 +7,7 @@ export class Session {
   private waitingForResponse: boolean;
   private currentAction?: string;
   private currentStep?: string;
+  private variables: Record<string, any> = {};
   constructor(readonly user: User) {
     this.startedAt = new Date();
     this.messages = [];
@@ -48,5 +49,9 @@ export class Session {
     if (!this.currentStep) throw new Error("There's no last step registered");
 
     return this.currentStep;
+  }
+
+  setVariable(name: string, value: any): void {
+    this.variables[name] = value;
   }
 }
