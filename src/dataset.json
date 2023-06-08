@@ -86,5 +86,45 @@
   {
     "synonym": "Stop",
     "intention": "goodbye"
+  },
+  {
+    "synonym": "Sign up",
+    "intention": "createAccount"
+  },
+  {
+    "synonym": "Register",
+    "intention": "createAccount"
+  },
+  {
+    "synonym": "Join",
+    "intention": "createAccount"
+  },
+  {
+    "synonym": "Create an account",
+    "intention": "createAccount"
+  },
+  {
+    "synonym": "Start a new account",
+    "intention": "createAccount"
+  },
+  {
+    "synonym": "Set up an account",
+    "intention": "createAccount"
+  },
+  {
+    "synonym": "Open an account",
+    "intention": "createAccount"
+  },
+  {
+    "synonym": "Get an account",
+    "intention": "createAccount"
+  },
+  {
+    "synonym": "Sign up for an account",
+    "intention": "createAccount"
+  },
+  {
+    "synonym": "Enroll",
+    "intention": "createAccount"
   }
 ]
