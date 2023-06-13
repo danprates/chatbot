@@ -63,6 +63,8 @@ Feel free to explore the diagrams to gain a deeper understanding of the chatbot'
 
 You can customize this description further or add more diagrams as needed for your project.
 
+> The diagrams in this project were created using PlantUML, a text-based diagramming tool. To visualize the diagrams, you'll need to install a PlantUML plugin for your preferred code editor or IDE. We recommend using the [PlantUML plugin](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) for Visual Studio Code.
+
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
