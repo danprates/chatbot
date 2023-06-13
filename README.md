@@ -35,9 +35,6 @@ The chatbot is designed to handle various user intentions and respond accordingl
 
 - **Create account**: This intention represents a multi-step action where the chatbot guides the user through the process of creating a new account. The chatbot will hold the session while the user fills in all the required data for account creation.
 
-
-## Customization
-
 ### Training Data
 
 Modify the training data in the `src/dataset.json` file to customize the chatbot's understanding of user intentions.
@@ -53,6 +50,18 @@ npm run train
 ```
 
 This will train the chatbot using the data defined in the `src/dataset.json` file and generate a `src/classifier.json` file with the trained data. Make sure to adjust the training data in the `src/dataset.json` file according to your specific needs.
+
+## Exploring the diagrams
+
+Below is a list of diagrams available for exploring the chatbot's system design and structure:
+
+- [**Class diagram**](https://github.com/danprates/chatbot/blob/master/docs/class-diagram.doc.md): Provides an overview of the classes involved in the chatbot system, their relationships, and responsibilities.
+
+These diagrams serve as visual representations of the chatbot's architecture and can be useful for understanding the system's design, implementation, and interactions between different components.
+
+Feel free to explore the diagrams to gain a deeper understanding of the chatbot's structure and functionality.
+
+You can customize this description further or add more diagrams as needed for your project.
 
 ## Contributing
 
