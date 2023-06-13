@@ -51,7 +51,22 @@ export class CreateAccount implements Domain.Action {
     session: Session
   ): Promise<{ session: Session; messages: string[] }> {
     session.setVariable("lastName", message.text);
-    session.waitForReply("createAccount", "getLastName");
+    session.waitForReply("createAccount", "getEmail");
     return { session, messages: ["What's your email?"] };
+  }
+
+  async getEmail(
+    message: Message,
+    session: Session
+  ): Promise<{ session: Session; messages: string[] }> {
+    session.setVariable("email", message.text);
+    session.removeWaitForReply();
+    return {
+      session,
+      messages: [
+        "Awesome! Your account was created",
+        "Now you have full access to the bot",
+      ],
+    };
   }
 }
