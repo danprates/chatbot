@@ -25,6 +25,17 @@ npm run start
 
 Interact with the chatbot by entering text-based inputs in the terminal. Type "exit" to end the conversation.
 
+## Intentions
+
+The chatbot is designed to handle various user intentions and respond accordingly. Below are the main intentions supported by the chatbot:
+
+- **Greetings**: This intention represents a single-step action where the chatbot responds with a greeting to the user.
+
+- **Goodbye**: This intention represents a single-step action where the chatbot responds with a farewell to the user.
+
+- **Create account**: This intention represents a multi-step action where the chatbot guides the user through the process of creating a new account. The chatbot will hold the session while the user fills in all the required data for account creation.
+
+
 ## Customization
 
 ### Training Data
@@ -49,4 +60,4 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://github.com/danprates/chatbot/blob/master/LICENSE).
