@@ -26,12 +26,12 @@ export class Assistant {
       user
     );
     session.addMessage(message);
-    const result = this.execActions(message, session);
+    const result = this.execAction(message, session);
     await this.props.sessionRepository.save(session);
     return result;
   }
 
-  async execActions(message: Message, session: Session): Promise<string[]> {
+  private async execAction(message: Message, session: Session): Promise<string[]> {
     const actionName = session.isWaitingForReply()
       ? session.getLastAction()
       : message.intention;
