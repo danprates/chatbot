@@ -1,5 +1,5 @@
-import { Domain } from "../domain.protocol";
 import { Message, Session, User } from ".";
+import { Domain } from "../domain.protocol";
 
 interface Props {
   channel: Domain.Channel;
@@ -26,7 +26,7 @@ export class Assistant {
       user
     );
     session.addMessage(message);
-    const result = this.execAction(message, session);
+    const result = await this.execAction(message, session);
     await this.props.sessionRepository.save(session);
     return result;
   }
